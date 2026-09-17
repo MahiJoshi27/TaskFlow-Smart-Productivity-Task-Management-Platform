@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-Flow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    
+    <section class="auth-section">
+
+    <div class="auth-box">
+
+        <h2>Welcome to TaskFlow</h2>
+        <p>Login to manage your tasks</p>
+
+        <input 
+            type="email" 
+            id="loginEmail" 
+            placeholder="Enter your email"
+        >
+
+        <input 
+            type="password" 
+            id="loginPassword" 
+            placeholder="Enter your password"
+        >
+
+        <button id="loginBtn">Login</button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</section>
+
+    <header>
+        <h1>TaskFlow</h1>
+        <p>Organize your day. Get things done.</p>
+    </header>
+
+    <main>
+    <section class="task-input">
+            <input 
+                type="text" id="taskInput" placeholder="What needs to be done?">
+                <button id="addBtn"> +Add Task </button>
+    </section>
+
+     <section class="stats">
+
+            <div class="stat-card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Completed</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Pending</h3>
+                <p id="pendingTasks">0</p>
+            </div>
+        </section>
+
+
+        <section class="tasks-section">
+        <h2>My Tasks</h2>
+
+        <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search tasks..."
+    >
+
+    <ul id="taskList"></ul>
+</section>
+
+    </main>
+    <script src="script.js"></script>
+
+
+</body>
+</html>

@@ -156,7 +156,10 @@ function createTask(taskData) {
     deleteBtn.addEventListener("click", function() {
 
     fetch(`http://localhost:5000/api/tasks/${taskData._id}`, {
-        method: "DELETE"
+        method: "DELETE",
+        headers: {
+        "Authorization": "Bearer " + localStorage.getItem("token")
+    }
     })
     .then(function(response) {
         return response.json();
@@ -187,7 +190,8 @@ function createTask(taskData) {
     fetch(`http://localhost:5000/api/tasks/${taskData._id}`, {
         method: "PUT",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json", 
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify({
             completed: completedStatus

@@ -220,3 +220,78 @@ main {
     border-color: #6c5ce7;
     box-shadow: 0 0 8px rgba(108, 92, 231, 0.2);
 }
+
+/* =========================
+   Login Section
+   ========================= */
+
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f3ff, #e9e5ff);
+    padding: 30px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(108, 92, 231, 0.18);
+    text-align: center;
+}
+
+.auth-box h2 {
+    color: #6c5ce7;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.auth-box p {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+}
+
+.auth-box input:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 8px rgba(108, 92, 231, 0.15);
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.auth-box button:hover {
+    background: #5849d6;
+    transform: translateY(-2px);
+}
+
+#loginMessage {
+    margin-top: 15px;
+    margin-bottom: 0;
+    color: #6c5ce7;
+    font-weight: 600;
+}

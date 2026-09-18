@@ -14,6 +14,9 @@ const completedTasks = document.getElementById("completedTasks");
 const pendingTasks = document.getElementById("pendingTasks");
 
 const searchInput = document.getElementById("searchInput");
+const authSection = document.querySelector(".auth-section");
+const dashboard = document.getElementById("dashboard");
+const logoutBtn = document.getElementById("logoutBtn");
 
 
 // Login functionality
@@ -49,6 +52,14 @@ loginBtn.addEventListener("click", function() {
             console.log("Token:", data.token);
 
             loginMessage.innerText = "Login successful!";
+
+
+            // Hide login screen
+            authSection.style.display = "none";
+
+            // Show dashboard
+            dashboard.style.display = "block";
+
 
             loadTasks(); // Load tasks after successful login
 
@@ -378,3 +389,27 @@ function loadTasks() {
 
     });
 } 
+
+// Logout functionality
+logoutBtn.addEventListener("click", function() {
+
+    // Remove JWT token
+    localStorage.removeItem("token");
+
+    // Hide dashboard
+    dashboard.style.display = "none";
+
+    // Show login section
+    authSection.style.display = "flex";
+
+    // Clear old tasks from screen
+    taskList.innerHTML = "";
+
+    // Clear login fields
+    loginEmail.value = "";
+    loginPassword.value = "";
+
+    // Clear login message
+    loginMessage.innerText = "";
+
+});

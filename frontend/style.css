@@ -295,3 +295,25 @@ main {
     color: #6c5ce7;
     font-weight: 600;
 }
+
+#dashboard {
+    display: none;
+}
+
+#logoutBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#logoutBtn:hover {
+    background: white;
+    color: #6c5ce7;
+}

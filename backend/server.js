@@ -37,8 +37,9 @@ app.get("/", function(req, res) {
 app.post("/api/tasks", authMiddleware, async function(req, res) {
     try {
 
-        const newTask = new Task({
+            const newTask = new Task({
             text: req.body.text,
+            priority: req.body.priority,
             user: req.user.userId
         });
 

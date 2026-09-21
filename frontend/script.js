@@ -7,6 +7,7 @@ const loginMessage = document.getElementById("loginMessage");
 
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
+const priorityInput = document.getElementById("priorityInput");
 const taskList = document.getElementById('taskList');
 
 const totalTasks = document.getElementById("totalTasks");
@@ -262,7 +263,8 @@ addBtn.addEventListener('click', function() {
             "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify({
-            text: taskText
+            text: taskText,
+            priority: priorityInput.value
         })
     })
     .then(function(response) {

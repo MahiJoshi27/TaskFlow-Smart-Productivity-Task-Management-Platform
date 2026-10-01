@@ -11,7 +11,7 @@ const authMiddleware = require("./authMiddleware");
 const app = express();
 
 app.use(cors({
-    origin: "http://127.0.0.1:5500"
+    origin: "http://localhost:5173"
 }));
 app.use(express.json());
 
@@ -40,6 +40,7 @@ app.post("/api/tasks", authMiddleware, async function(req, res) {
             const newTask = new Task({
             text: req.body.text,
             priority: req.body.priority,
+            dueDate: req.body.dueDate,
             user: req.user.userId
         });
 
@@ -120,7 +121,8 @@ app.put("/api/tasks/:id", authMiddleware, async function(req, res) {
     },
     {
         text: req.body.text,
-        completed: req.body.completed
+        completed: req.body.completed,
+        priority: req.body.priority
     },
     { new: true }
 );

@@ -8,6 +8,7 @@ const loginMessage = document.getElementById("loginMessage");
 const taskInput = document.getElementById('taskInput');
 const addBtn = document.getElementById('addBtn');
 const priorityInput = document.getElementById("priorityInput");
+const dueDateInput = document.getElementById("dueDateInput");
 const taskList = document.getElementById('taskList');
 
 const totalTasks = document.getElementById("totalTasks");
@@ -97,9 +98,16 @@ function createTask(taskData) {
     const taskTextElement = document.createElement("span");
     taskTextElement.innerText = taskData.text;
 
-    task.appendChild(taskTextElement);
-    task.prepend(checkBox);
 
+    // Priority
+    const priorityElement = document.createElement("span");
+    priorityElement.innerText = taskData.priority + " Priority";
+    priorityElement.className = "priority";
+
+    task.appendChild(taskTextElement);
+    task.appendChild(priorityElement);
+
+task.prepend(checkBox);
 
     // Apply completed style if task was already completed
     if (taskData.completed) {
@@ -120,9 +128,23 @@ function createTask(taskData) {
         taskTextElement.innerText
     );
 
-    if (newTask === null || newTask.trim() === "") {
+    const newPriority = prompt(
+    "Enter priority (Low / Medium / High):",
+    taskData.priority
+);
+
+    if (newTask === null || newTask.trim() === "" || newPriority === null || !["Low", "Medium", "High"].includes(newPriority)) {
         return;
     }
+
+    if (
+    newPriority !== "Low" &&
+    newPriority !== "Medium" &&
+    newPriority !== "High"
+) {
+    alert("Priority must be Low, Medium, or High");
+    return;
+}
 
     fetch(`http://localhost:5000/api/tasks/${taskData._id}`, {
         method: "PUT",
@@ -131,7 +153,8 @@ function createTask(taskData) {
         },
         body: JSON.stringify({
             text: newTask,
-            completed: taskData.completed
+            completed: taskData.completed,
+            priority: newPriority
         })
     })
     .then(function(response) {
@@ -264,7 +287,8 @@ addBtn.addEventListener('click', function() {
         },
         body: JSON.stringify({
             text: taskText,
-            priority: priorityInput.value
+            priority: priorityInput.value,
+            dueDate: dueDateInput.value
         })
     })
     .then(function(response) {

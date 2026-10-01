@@ -317,3 +317,13 @@ main {
     background: white;
     color: #6c5ce7;
 }
+
+.priority {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #eeeaff;
+    color: #6c5ce7;
+    white-space: nowrap;
+}

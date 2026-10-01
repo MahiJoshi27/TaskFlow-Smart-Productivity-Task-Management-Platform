@@ -41,6 +41,8 @@ app.post("/api/tasks", authMiddleware, async function(req, res) {
             text: req.body.text,
             priority: req.body.priority,
             dueDate: req.body.dueDate,
+            category:req.body.category,
+            estimatedMinutes: req.body.estimatedMinutes,
             user: req.user.userId
         });
 
